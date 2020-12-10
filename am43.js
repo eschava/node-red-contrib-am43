@@ -35,7 +35,8 @@ module.exports = function(RED) {
             var command = msg.payload;
 
 			if (node.device != null) {
-			    sendCommand(command, error);
+			    if (command != undefined)
+			        sendCommand(command, error);
 			} else if (node.scanningActive) {
 				node.status({fill:"yellow", shape:"dot", text:"searching"});
 			} else {

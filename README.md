@@ -17,7 +17,7 @@ npm install node-red-contrib-am43
 
 **Configuration:** AM43 node needs only bluetooth address of devices (optional, if it's omitted then an incoming message should have **address** property)
 
-**Input message:** sends command to the device. Every input message should have _payload_ property with command to execute.  
+**Input message:** sends command to the device. Every input message should have **payload** property with command to execute.  
 Supported commands are:
 * _open_ - opens blinds (0%)
 * _close_ - closes blinds(100%)
@@ -25,17 +25,17 @@ Supported commands are:
 * _number_ - number in percents to open blinds
 
 Optional parameters:
-* _address_ - override address of the device from configuration.
-* _scan_ - re-lookup for the device even if it was already found before.
+* **address** - override address of the device from configuration.
+* **scan** - re-lookup for the device even if it was already found before.
 
-If _address_ configuration parameter is not specified then input message should have _address_ property.  
+If _address_ configuration parameter is not specified then input message should have **address** property.  
 Node tries to connect to the device with the first received message.
 
 **Output message:** Output message could contain next fields:
-* _state_ - blinds state (OPEN/CLOSE)
-* _position_ - blinds position in percents
-* _battery_ - battery level in percents
-* _light_ - brightness in percents (if sensor is connected, 0 otherwise)
+* **state** - blinds state (OPEN/CLOSE)
+* **position** - blinds position in percents
+* **battery** - battery level in percents
+* **light** - brightness in percents (if sensor is connected, 0 otherwise)
 
 ## Linux
 
