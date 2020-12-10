@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "@abandonware/noble": "^1.9.2-5",
-    "am43-ctrl": "binsentsu/am43-ctrl#master"
+    "am43-ctrl": "^0.2.0"
   },
   "description": "AM43-based blinds motor",
   "devDependencies": {},
@@ -15,7 +15,8 @@
     "bluetooth4",
     "am43",
     "A-OK",
-    "blinds"
+    "blinds",
+    "node-red"
   ],
   "license": "MIT",
   "name": "node-red-contrib-am43",
@@ -29,5 +30,5 @@
     "url": "git+https://github.com/eschava/node-red-contrib-am43.git"
   },
   "optionalDependencies": {},
-  "version": "0.1.0"
+  "version": "0.2.0"
 }
