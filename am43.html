@@ -1,0 +1,46 @@
+<script type="text/javascript">
+    RED.nodes.registerType('AM43',{
+        category: 'Bluetooth',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+			address: {value:"", validate:RED.validators.regex(/^$|[0-9a-fA-F][0-9a-fA-F]:[0-9a-fA-F][0-9a-fA-F]:[0-9a-fA-F][0-9a-fA-F]/) },
+			scanningTimeout: {value:60, validate:RED.validators.number() }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"AM43";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="AM43">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-address"><i class="icon-tag"></i> Address (optional)</label>
+        <input type="text" id="node-input-address" placeholder="XX:XX:XX:XX:XX:XX">
+    </div>
+    <div class="form-row">
+        <label for="node-input-scanningTimeout"><i class="icon-tag"></i> Scanning timeout (in seconds)</label>
+        <input type="text" id="node-input-scanningTimeout" placeholder="60">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="AM43">
+    <p>AM43-based blinds motor</p>
+
+    <h3>Commands</h3>
+    <p>Every input message should have <code>payload</code> property with command to execute. Supported commands are:</p>
+    <p><code>open</code> - opens blinds (0%)</p>
+    <p><code>close</code> - closes blinds(100%)</p>
+    <p><code>stop</code> - stops current action if any</p>
+    <p><code>number</code> - number in percents to open blinds</p>
+
+	<p>If <code>address</code> configuration parameter is not specified then input message should have <code>msg.address</code> field.</p>
+	<p>Node tries to connect to the device with the first received message.</p>
+</script>
